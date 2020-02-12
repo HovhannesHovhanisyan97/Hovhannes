@@ -3,7 +3,7 @@ let a = prompt();
 let b = prompt();
 let c = prompt();
 
-if (a == 0 || b == 0 || c == 0){
+if (a === 0 || b === 0 || c === 0){
 			alert('unsigned');
 }else if (a < 0 && b > 0 && c > 0) {
  			alert('-')
@@ -11,8 +11,11 @@ if (a == 0 || b == 0 || c == 0){
  			alert('-')
 }else if (a > 0 && b > 0 && c < 0) {
 			alert('-')
-}else if (a == null || b == null || c == null){
+}else if (a === null || b ==  null || c ==  null){ //cancel
+ 			alert('bye') 
+}else if (a == '' || b == '' || c == ''){ // datark
  			alert('type number')
+
 }else {
  			alert('+')}
 			
