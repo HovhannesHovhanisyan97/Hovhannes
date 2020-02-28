@@ -1,20 +1,22 @@
 //1
-let digit = +prompt();
+function typeNum (digit){ 
 let firstdigit = 0;
 let secondDigit = 1;
 let c;
 do{
 c = firstdigit + secondDigit
-document.write(firstdigit + '<br />');
+console.log(firstdigit);
 firstdigit = secondDigit
 secondDigit = c
 
 
 }while(firstdigit < digit)
+return 
+}
 	
 //2
 
- let k = +prompt()  
+function difference (k){  
 let sum = 0;
 let product = 1;
 if (k === 0){alert('Cannot calculate.')}
@@ -22,12 +24,16 @@ for(; k != 0; k = (k - k % 10)/10){
   let digit = k % 10
   sum += digit
   product = product * digit
+
+}
 if(product % sum === 0){
 alert(`‘Quotient is ${product/sum}`);
 }else{
 alert(`Remainder is ${product % sum}`)
 }
 }
+
+difference (1233)
 
 
 
@@ -63,11 +69,15 @@ return false
 
 //4
 
-let numbers = prompt();
+function secMax (numbers) {
 let array = numbers.split(',')
 let c = array.sort(function (a , b){ return a - b})
 let secondMaxDigInd = c.length - 2
-alert (c[secondMaxDigInd])
+
+return alert(c[secondMaxDigInd])
+}
+
+secMax ('5,10,15,20,21')
 
 //5
 
@@ -105,15 +115,13 @@ function TypeNum (n){
 for (let i = 0; i < n ; i++){
         let symbol = '* '
         for(let j = 0; j < n ; j++){
-        document.write(symbol);
+        console.log(symbol);
         
         
 }
-document.write('<br />')
+console.log('\n')
 }
 }
-
-TypeNum(5)
 
 
 
@@ -126,15 +134,15 @@ let allDgits = '';
     	  
         allDgits += j
         
-document.write(allDgits)
-document.write('<br />')
+console.log(allDgits)
+
  } 
 		for (let j = k ; j > 2; j--){
     	  
         allDgits = (allDgits - allDgits % 10)/10
         
-document.write(allDgits)
-document.write('<br />')
+console.log(allDgits)
+
                
  }
 }
