@@ -1,31 +1,21 @@
 //2
 
-function fre (arr) {
-let count = []
-let sum = 0
-let finalres = []
-for(let i = 0;i < arr.length;i++){
-		for(let j = 0; j < arr.length;j++){
-    if(arr[i]===arr[j]){
-    sum += 1
-   										}
-   								
-                  }
-count.push(`${arr[i]}-${sum/arr.length}`)
-sum = 0
-}
-for(let i = 0; i < count.length;i++){
-		for(let j = 0; j < count.length;j++){
-			if(!finalres.includes(count[i])){
-				finalres.push(count[i])
-    
+function fre(arr) {
+  let count = {}
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        sum += 1
+      }
     }
+    count[arr[i]] = sum / arr.length
+    sum = 0
+  }
+  return count
 }
-}
-return finalres
-}
+console.log(fre([1, 2, 3, 4, 4]))
 
-alert(fre([1,2,3,4,5]))
 
 //3
 
@@ -68,9 +58,9 @@ function longestSubstr(sent) {
   let longestpiece = "";
   for (let j = 0; j < arrsent.length; j++) {
     for (let i = j; i < arrsent.length; i++) {
-      if (piece.includes(arrsent[i]) && arrsent[i] !== " ") {
+      if (piece.includes(arrsent[i]) && arrsent[i] !== " " && arrsent[i] !== ",") {
         break;
-      } else if (arrsent[i] === " ") {
+      } else if (arrsent[i] === " " || arrsent[i] === ",") {
         piece += arrsent[i];
       } else {
         piece += arrsent[i];
@@ -87,35 +77,22 @@ console.log(longestSubstr('parting your soup is not a miracle, bruce.'));
 
 //6
 
-function replacement (str){
-let array = str.split("");
-let newArr = [];
-let threechar = []
-let string = "";
-let a =''
-let finalArr =[]
-for(let i = 0;i <= array.length;i +=3){
-		threechar = array.slice(i,i+3)
-    string = threechar.join('')
-    newArr.push(string)
-    threechar = []
-}
-for(let j = 0; j < newArr.length;j++){
-		if(newArr[j].length == 3){
-     a = newArr[j][1] + newArr[j][2] + newArr[j][0]
-     finalArr.push(a)
-     a = "";
+  function replacement(str){
+  let newArr = '';
+  let string = "";
+  for (let i = 0; i <= str.length; i += 3) {
+    threechar = str.slice(i, i + 3)
+    if(threechar.length === 3){
+    string = threechar[1]+threechar[2]+threechar[0]
+    newArr +=string
+    string = []
+    }else{
+    newArr += threechar
     }
-else {
-finalArr.push(newArr[j])
-
-}
-
-}
-return finalArr.join('')
-}
+  }
+  return newArr
+  }
 alert(replacement('aweyoolp'))
-
 //7
 
 function  prodMaxNeg(arr){ 
