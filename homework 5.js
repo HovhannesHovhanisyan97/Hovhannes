@@ -57,12 +57,11 @@ function sortNum(arrays) {
       sum++
     }
   }
-}
 if (sum > 0) {
   return arrays[arrays.length - 1]
 } else {
   return -1
-
+}
 }
 //alert(sortNum([2, 12, 15, 48, 64]))
 //alert(sortNum([-9, -4, -4, 3, 12, 4, 5]))
