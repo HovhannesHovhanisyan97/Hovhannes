@@ -108,7 +108,7 @@ function absentNums(array) {
       arr.push(j)
     }
   }
-  return arr
+  return arr.length
 }
 alert(absentNums([1, 2, 5, 6, 15]))
 
