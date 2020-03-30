@@ -19,9 +19,9 @@ bigThanDig([1, 1, 2, -3, 0, 8, 4, 0], 9)
 function evenNum(firDig, secDig) {
   let arr = [];
   for (let i = firDig; i <= secDig; i++) {
-    fd = Math.floor(i / 10)
-    if (i % 2 == 0 && i < 100 && fd % 2 == 0) {
-      arr.push(i);
+    fd = even(i)
+    if (fd % 2 == 0) {
+      arr.push(fd);
     }
   }
   if (arr.length === 0) {
@@ -30,7 +30,24 @@ function evenNum(firDig, secDig) {
 
   return arr
 }
-evenNum(19, 42)
+alert(evenNum(99, 299))
+
+function even(num) {
+  let k = num
+  let str = String(num)
+  let count = 0
+  for (; num != 0; num = (num - num % 10) / 10) {
+    let firDi = num % 10
+    if (firDi % 2 === 0) {
+      count++
+    }
+  }
+  if (str.length === count) {
+    return k
+  } else {
+    return 1
+  }
+}
 
 //3
 function sortNum(arrays) {
