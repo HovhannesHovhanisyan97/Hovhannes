@@ -1,159 +1,138 @@
+//1
+
+function bigThanDig(arr, dig) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > dig) {
+      newArr.push(arr[i])
+    }
+  }
+  if (newArr.length === 0) {
+    return 'Such values do not exist.'
+  }
+  return newArr
+}
+bigThanDig([1, 1, 2, -3, 0, 8, 4, 0], 9)
+
 //2
 
-function fre(arr) {
-  let count = {}
-  let sum = 0
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[i] === arr[j]) {
-        sum += 1
-      }
+function evenNum(firDig, secDig) {
+  let arr = [];
+  for (let i = firDig; i <= secDig; i++) {
+    fd = Math.floor(i / 10)
+    if (i % 2 == 0 && i < 100 && fd % 2 == 0) {
+      arr.push(i);
     }
-    count[arr[i]] = sum / arr.length
-    sum = 0
   }
-  return count
-}
-console.log(fre([1, 2, 3, 4, 4]))
+  if (arr.length === 0) {
+    return 'Such numbers does not exist.'
+  }
 
+  return arr
+}
+evenNum(19, 42)
 
 //3
-
-function type (strAndNum){
-let string = 0;
-let number = 0;
-for(let i = 0;i < strAndNum.length;i++){
-	if(typeof(strAndNum[i]) === 'string'){
-  		string += 1
-  }else {
-  	number +=1
+function sortNum(arrays) {
+  let sum = 0
+  for (let i = 0; i < arrays.length; i++) {
+    if (arrays[i] > arrays[i + 1]) {
+      sum++
+    }
   }
-
-}return (`string ${string}, number ${number}`)
 }
+if (sum > 0) {
+  return arrays[arrays.length - 1]
+} else {
+  return -1
 
-alert(type([1,'10','hi',2,3]))
+}
+//alert(sortNum([2, 12, 15, 48, 64]))
+//alert(sortNum([-9, -4, -4, 3, 12, 4, 5]))
 
 //4
 
-function longChar (sen){
-let senarr = sen.split(' ')
-let long = ''
-for(let i = 0;i < senarr.length;i++){
-		if(senarr[i].length > long.length){
-     long = senarr[i]
+function maxDif(arrays) {
+  let arr = [];
+  let dif = 0;
+  let maxNum = -Infinity
+  for (let i = 0; i < arrays.length; i++) {
+    if (arrays[i + 1] !== undefined) {
+      let dif = arrays[i] * arrays[i + 1]
+      arr.push(dif)
+      dif = 0
     }
-
 }
-return long
+for (let i = 0; i < arr.length; i++){
+    if(arr[i]> maxNum){
+      maxNum =arr[i] 
+    }
 }
 
-alert(longChar(`A revolution without dancing is a revolution not worth having.`))
 
+  return maxNum
+}
+alert(maxDif([1, 2, 3, 4, 5, 6]))
 //5
 
-function longestSubstr(sent) {
-  let arrsent = sent.split("")
-  let piece = "";
-  let longestpiece = "";
-  for (let j = 0; j < arrsent.length; j++) {
-    for (let i = j; i < arrsent.length; i++) {
-      if (piece.includes(arrsent[i]) && arrsent[i] !== " " && arrsent[i] !== ",") {
-        break;
-      } else if (arrsent[i] === " " || arrsent[i] === ",") {
-        piece += arrsent[i];
-      } else {
-        piece += arrsent[i];
-      }
+function absentNums(array) {
+  max = -Infinity
+  min = Infinity
+  arr = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i]
     }
-    if (longestpiece.length < piece.length) {
-      longestpiece = piece;
+    if (array[i] < min) {
+      min = array[i]
     }
-    piece = "";
   }
-  return longestpiece;
+  for (let j = min; j < max; j++) {
+    if (!array.includes(j)) {
+      arr.push(j)
+    }
+  }
+  return arr
 }
-console.log(longestSubstr('parting your soup is not a miracle, bruce.'));
+alert(absentNums([1, 2, 5, 6, 15]))
 
 //6
 
-  function replacement(str){
-  let newArr = '';
-  let string = "";
-  for (let i = 0; i <= str.length; i += 3) {
-    threechar = str.slice(i, i + 3)
-    if(threechar.length === 3){
-    string = threechar[1]+threechar[2]+threechar[0]
-    newArr +=string
-    string = []
-    }else{
-    newArr += threechar
+function newArr(arrays) {
+  sum = 0
+  sumArr = [];
+  for (let i = 0; i < arrays.length; i++) {
+    for (let j = 0; j < arrays[i].length; j++) {
+      sum += arrays[i][j]
+
     }
+    sumArr.push(sum)
+    sum = 0
   }
-  return newArr
-  }
-alert(replacement('aweyoolp'))
+  return sumArr
+}
+alert(newArr([
+  [8, 35, 2],
+  [8],
+  [5, 6, -5, -6],
+  [1, 3, -9, 0, -1]
+]))
+
 //7
 
-function  prodMaxNeg(arr){ 
-let allNeg = []
-let theSmalestdigit = []
-let prod = 1;
-
-  for(let i = 0; i < arr.length; i++){
-    if(typeof(arr[i]) !== 'object'){
-      return 'Invalid Argument'
-    } 
-
+function newArr(arrays) {
+  oddNum = []
+  arr = [];
+  for (let i = 0; i < arrays.length; i++) {
+    if (Math.abs(arrays[i]) % 2 === 1) {
+      oddNum.push(arrays[i])
+    }
   }
-
- function arrMaxNeg (arr1){
-       arr2 = [];
-     for(let i = 0;i <arr1.length;i++){
-          if(arr1[i]<0){
-             arr2.push(arr1[i])
-        }
-     }
-      let max = arr2[0]
-    for(let j = 0;j< arr2.length;j++){
-      if(arr2[j]>max){
-      max = arr2[j]
-      }
+  for (let i = 0; i < oddNum.length; i++) {
+    arr.push(oddNum[i] * oddNum.length)
+  }
+  return arr
 }
-    return max
-    }
+alert(newArr([5, 4, 78, 0, -3, 7]))
 
-   
-		for(let i = 0; i < arr.length;i++){
-					if(typeof(arrMaxNeg(arr[i]))=== 'number')
-							prod *= arrMaxNeg(arr[i])
-
-}
-
-if (prod === 1) {
- return 'No Negatives';
-} else {
-return prod
-}
-}
-alert(prodMaxNeg([[2, 9, -3, 0],[1, 2],[-4, -11, 0]]))
-
-//8
-
-let arr = [5, 9, 23, 0, -2, -1]
-let newArr = []
-let  array1 = []
-for(let i = 0; i < arr.length;i++){
-		for(let j= i+1; j < arr.length;j++ ){
-    	for(let k = j+1; k< arr.length;k++){
-      		
-      		array1.push(arr[i],arr[j],arr[k])
-      			newArr.push(array1);
-            array1  = []
-      }
-    
-    
-    }
-}
-cosole.log(newArr)
 
