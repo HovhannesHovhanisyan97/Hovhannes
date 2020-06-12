@@ -86,7 +86,9 @@ class Author {
         if (accountFirst instanceof Account && accountSecond instanceof Account) {
             if (accountFirst.id === accountSecond.id) {
                 return "They are the same Account"
-            } else return "They are different Accounts"
+            } else {
+                return "They are different Accounts"
+        }
         }
     }
     get _name() {
